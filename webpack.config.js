@@ -3,10 +3,19 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+const plugins = [
+    new HtmlWebpackPlugin({
+        template: 'client/index.html',
+        filename: 'index.html',
+        inject: 'body'
+    }),
+    new UglifyJSPlugin()
+]
+
 module.exports = {
     entry: [
         'react-hot-loader/patch',
-        './src/index.js'
+        './client/index.js'
     ],
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -32,21 +41,6 @@ module.exports = {
             }
         ]
     },
-    const plugins: [
-        new HtmlWebpackPlugin({
-            template: 'client/index.html',
-            filename: 'index.html',
-            inject: 'body'
-        }),
-        new webpack.optimize.UglifyJsPlugin()
-    ]
-    
-    entry: './client/index.js',
-    output: {
-        path: path.resolve(__dirname, 'public'),
-        filename: 'app.bundle.js'
-    },
-        
     devServer: {
         proxy: {
             'socket.io':{
@@ -54,5 +48,6 @@ module.exports = {
                 ws: true
             }
         }
-    }
+    },
+    plugins
 };

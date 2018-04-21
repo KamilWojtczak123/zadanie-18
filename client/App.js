@@ -2,10 +2,10 @@ import React, {Component } from 'react';
 import { ht } from 'react-hot-loader';
 import io from 'socket.io-client';
 
-import styles from 'App.css';
+import styles from './App.css';
 
 import MessageForm from './MessageForm';
-import MessageList from './MessageList';l
+import MessageList from './MessageList';
 import UsersList from './UsersList';
 import UserForm from './UserForm';
 
@@ -79,3 +79,6 @@ class App extends Component {
      return (<UserForm onUserSubmit={name => this.handleUserSubmit(name)} />)
   }
 }
+
+export default App;
+

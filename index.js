@@ -4,19 +4,15 @@ const socket = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
-const io = SocketIo(server);
-const UsersService = require('./USersService');
+const io = socket(server);
+const UsersService = require('./userService');
 
-const UsersService = new UsersService();
+const usersService = new UsersService();
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/imdex.html');
-});
-
-app.get('/', function(req,res) {
-    res.sendFile(__dirname + 'index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 io.on('connection', function(socket) {

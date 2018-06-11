@@ -4,10 +4,17 @@ const socketIo = require('socket.io');
 
 const app = express();
 const server = http.createServer(app);
+<<<<<<< HEAD
 const io = socketIo(server);
 const UsersService = require('./UsersService');
 
 const userService = new UsersService(); 
+=======
+const io = socket(server);
+const UsersService = require('./userService');
+
+const usersService = new UsersService();
+>>>>>>> d83955830540d270cf604b07eca06d4d165fa7b6
 
 app.use(express.static('public'));
 

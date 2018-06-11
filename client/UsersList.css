@@ -22,5 +22,12 @@
     list-style: none;
     border-bottom: 1px solid #ccc;
     padding: 20px;
-    margin: 0 0 0 20px;
+    margin: 0;
+}
+
+.UserActive:before {
+    content: "• ";
+    color: red;
+    position: absolute;
+    left: 0;
 }

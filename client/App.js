@@ -15,76 +15,6 @@ class App extends Component {
         super(props);
         this.state = {users: [], messages: [], text: '', name: ''};
     }
-
-<<<<<<< HEAD
-    render() {
-        return this.state.name !== '' ? this.renderLayout() : this.renderUserForm();
-    }
-
-    renderLayout() {
-        return (
-            <div className={styles.App}>
-                <div className={styles.AppHeader}>
-                    <div className={styles.AppTitle}>
-                        ChatApp
-                    </div>
-                    <div className={styles.AppRoom}>
-                        App room
-                    </div>
-                </div>
-                <div className={styles.AppBody}>
-                    <UsersList
-                        users={this.state.users}
-                        name={this.state.name}
-                    />
-                    <div className={styles.MessageWrapper}>
-                        <MessageList
-                            messages={this.state.messages}
-                        />
-                        <MessageForm
-                            onMessageSubmit={message => this.handleMessageSubmit(message)}
-                            name={this.state.name}
-                        />
-                    </div>
-                </div>
-            </div>
-        )
-    }
-
-    renderUserForm() {
-        return (<UserForm onUserSubmit={name => this.handleUserSubmit(name)} />)
-    }
-
-    messageReceive(message) {
-        const messages = [message, ...this.state.messages];
-        console.log(this.state.messages);
-        this.setState({messages});
-    }
-
-    chatUpdate(users) {
-        console.log(users)
-        this.setState({users});
-    }
-
-    handleMessageSubmit(message) {
-        const messages = [message, ...this.state.messages];
-        this.setState({messages});
-        socket.emit('message', message);
-    }
-
-    handleUserSubmit(name) {
-        this.setState({name});
-        socket.emit('join', name);
-    }
-
-    componentDidMount() {
-        socket.on('message', message => this.messageReceive(message));
-        socket.on('update', ({users}) => this.chatUpdate(users));
-    }
-};
-
-export default App;
-=======
   componentDidMount() {
     socket.on('message', message => this.messageReceive(message));
     socket.on('update', ({users}) => this.chatUpdate(users));
@@ -149,5 +79,3 @@ export default App;
 }
 
 export default App;
-
->>>>>>> d83955830540d270cf604b07eca06d4d165fa7b6
